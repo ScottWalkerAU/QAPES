@@ -5,6 +5,10 @@ import me.scottwalkerau.qapes.block.Block;
 import static me.scottwalkerau.qapes.block.ReturnType.BOOLEAN;
 import static me.scottwalkerau.qapes.block.ReturnType.VOID;
 
+/**
+ * A WHILE loop given the condition returns true
+ * @author Scott Walker
+ */
 public class WhileBlock extends Block {
 
     public WhileBlock() {

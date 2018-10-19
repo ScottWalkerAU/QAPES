@@ -4,6 +4,10 @@ import me.scottwalkerau.qapes.block.Block;
 
 import static me.scottwalkerau.qapes.block.ReturnType.BOOLEAN;
 
+/**
+ * A boolean NOT
+ * @author Scott Walker
+ */
 public class NotBlock extends Block {
 
     public NotBlock() {

@@ -71,7 +71,6 @@ public class Solution {
 
         if (fitness < 0) {
             fitness = Long.MAX_VALUE;
-            //throw new IllegalArgumentException("Fitness cannot be negative. Using instance " + instance.getInsName());
         }
 
         return fitness;

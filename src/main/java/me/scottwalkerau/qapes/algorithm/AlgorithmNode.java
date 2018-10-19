@@ -4,13 +4,26 @@ import me.scottwalkerau.qapes.block.Block;
 import me.scottwalkerau.qapes.block.BlockType;
 import me.scottwalkerau.qapes.qap.Solution;
 
+/**
+ * Internal node for an algorithm tree
+ * @author Scott Walker
+ */
 public class AlgorithmNode {
 
+    /** What level of the tree we're at */
     private int level;
+    /** The parent of this node */
     private AlgorithmNode parent;
+    /** The block we're storing */
     private Block block;
+    /** All children blocks */
     private AlgorithmNode[] children;
 
+    /**
+     * Constructor
+     * @param parent Parent for this node
+     * @param block The block to store in the node
+     */
     public AlgorithmNode(AlgorithmNode parent, Block block) {
         this.level = (parent == null) ? 0 : parent.getLevel() + 1;
         this.parent = parent;
@@ -28,6 +41,10 @@ public class AlgorithmNode {
         }
     }
 
+    /**
+     * Clone this node and all its children. Can only clone root nodes.
+     * @return New root node
+     */
     public AlgorithmNode duplicate() {
         if (!isRoot()) {
             throw new UnsupportedOperationException("Can only duplicate a root node");
@@ -35,6 +52,11 @@ public class AlgorithmNode {
         return new AlgorithmNode(this, (AlgorithmNode) null);
     }
 
+    /**
+     * Call the evaluation function on the block stored in this node.
+     * @param solution Solution in use
+     * @return The return of the block
+     */
     public Object evaluate(Solution solution) {
         return block.evaluate(solution, children);
     }
@@ -49,6 +71,10 @@ public class AlgorithmNode {
         }
     }
 
+    /**
+     * Used in crossover to swap places between trees
+     * @param other The other node to swap with
+     */
     public void swapWith(AlgorithmNode other) {
         int indexA = this.getIndexFromParent();
         int indexB = other.getIndexFromParent();
@@ -67,12 +93,20 @@ public class AlgorithmNode {
         this.updateLevels();
     }
 
+    /**
+     * Overwrite this node with the given node
+     * @param other Node to overwrite with
+     */
     public void overwriteWith(AlgorithmNode other) {
         this.block = other.block;
         this.children = other.children;
         updateLevels();
     }
 
+    /**
+     * Overwrite the block in this node with the given type
+     * @param type Block to overwrite with
+     */
     public void overwriteWith(BlockType type) {
         if (!type.getBlock().isTerminal())
             throw new IllegalArgumentException("Can only overwrite with a Block if it's a terminal");
@@ -107,6 +141,11 @@ public class AlgorithmNode {
         return true;
     }
 
+    /**
+     * Set a particular child node
+     * @param index Index of the child
+     * @param child Node to set with
+     */
     public void setChild(int index, AlgorithmNode child) {
         getChildren()[index] = child;
     }

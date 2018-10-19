@@ -5,6 +5,10 @@ import me.scottwalkerau.qapes.qap.Pair;
 
 import static me.scottwalkerau.qapes.block.ReturnType.FACILITY_PAIR;
 
+/**
+ * Finds the best move given the current configuration
+ * @author Scott Walker
+ */
 public class GreedyMoveBlock extends Block {
 
     public GreedyMoveBlock() {

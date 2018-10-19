@@ -5,6 +5,10 @@ import me.scottwalkerau.qapes.block.Block;
 import static me.scottwalkerau.qapes.block.ReturnType.BOOLEAN;
 import static me.scottwalkerau.qapes.block.ReturnType.NUMBER;
 
+/**
+ * Compare two numbers are equal
+ * @author Scott Walker
+ */
 public class EqualBlock extends Block {
 
     public EqualBlock() {

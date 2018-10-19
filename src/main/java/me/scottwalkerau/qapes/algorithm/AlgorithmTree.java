@@ -12,10 +12,13 @@ import java.util.Random;
 /**
  * Class to store an entire algorithm in a tree structure.
  * The tree is a custom-built Abstract Data Type.
+ * @author Scott Walker
  */
 public class AlgorithmTree {
 
+    /** How many times to run the algorithm */
     private static final int RUNS = 4;
+    /** The depth at which we start to prefer terminal nodes */
     private static final int MAX_DEPTH = 5;
 
     /** Root node of the tree */
@@ -26,20 +29,35 @@ public class AlgorithmTree {
     /** Runners in execution */
     private transient List<AlgorithmRunner> runners;
 
+    /**
+     * Constructor to randomly generate a tree
+     */
     public AlgorithmTree() {
         root = new AlgorithmNode(null, BlockCatalogue.getRandomBlock(ReturnType.VOID));
         generateChildren(root);
     }
 
+    /**
+     * Clone constructor
+     * @param original Algorithm to clone
+     */
     private AlgorithmTree(AlgorithmTree original) {
         this.root = original.root.duplicate();
         this.resultSet = original.resultSet;
     }
 
+    /**
+     * Constructor used in loading an algorithm from file
+     * @param root Root of the tree
+     */
     public AlgorithmTree(AlgorithmNode root) {
         this.root = root;
     }
 
+    /**
+     * Call the clone constructor
+     * @return New AlgorithmTree
+     */
     public AlgorithmTree duplicate() {
         return new AlgorithmTree(this);
     }
@@ -63,6 +81,10 @@ public class AlgorithmTree {
         }
     }
 
+    /**
+     * Run the algorithm n times against the instance
+     * @param instance Instance to use
+     */
     public void run(Instance instance) {
         runners = new ArrayList<>();
         for (int run = 0; run < RUNS; run++) {
@@ -72,6 +94,11 @@ public class AlgorithmTree {
         }
     }
 
+    /**
+     * Wait for the execution to finish and return the result set
+     * @return Result set
+     * @throws InterruptedException Thread was interrupted
+     */
     public ResultSet join() throws InterruptedException {
         resultSet = new ResultSet(this);
         for (AlgorithmRunner runner : runners) {
@@ -110,6 +137,11 @@ public class AlgorithmTree {
         return mutated;
     }
 
+    /**
+     * Get a random node that matches the given type
+     * @param type Type to choose
+     * @return Node of chosen type
+     */
     public AlgorithmNode getRandomNodeOfType(ReturnType type) {
         List<AlgorithmNode> typeList = new ArrayList<>();
 
@@ -121,17 +153,30 @@ public class AlgorithmTree {
         return (typeList.size() == 0) ? null : typeList.get(new Random().nextInt(typeList.size()));
     }
 
+    /**
+     * Get a random node from the tree
+     * @return A randomly selected node from the tree
+     */
     public AlgorithmNode getRandomNode() {
         List<AlgorithmNode> all = getAllNodes();
         return all.get(new Random().nextInt(all.size()));
     }
 
+    /**
+     * Get all the nodes of the tree as a list
+     * @return Every node
+     */
     public List<AlgorithmNode> getAllNodes() {
         List<AlgorithmNode> list = new ArrayList<>();
         getAllNodesRecursion(list, root);
         return list;
     }
 
+    /**
+     * Helper function for getAllNodes
+     * @param list List to append to
+     * @param current Current node
+     */
     private void getAllNodesRecursion(List<AlgorithmNode> list, AlgorithmNode current) {
         list.add(current);
         for (AlgorithmNode child : current.getChildren()) {

@@ -4,6 +4,10 @@ import me.scottwalkerau.qapes.block.Block;
 
 import static me.scottwalkerau.qapes.block.ReturnType.BOOLEAN;
 
+/**
+ * A Boolean OR
+ * @author Scott Walker
+ */
 public class OrBlock extends Block {
 
     public OrBlock() {

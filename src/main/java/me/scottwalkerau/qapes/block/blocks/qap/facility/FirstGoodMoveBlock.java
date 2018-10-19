@@ -5,6 +5,10 @@ import me.scottwalkerau.qapes.qap.Pair;
 
 import static me.scottwalkerau.qapes.block.ReturnType.FACILITY_PAIR;
 
+/**
+ * Finds the first move to improve the fitness
+ * @author Scott Walker
+ */
 public class FirstGoodMoveBlock extends Block {
 
     public FirstGoodMoveBlock() {

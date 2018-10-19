@@ -6,6 +6,10 @@ import me.scottwalkerau.qapes.qap.Pair;
 import static me.scottwalkerau.qapes.block.ReturnType.FACILITY_PAIR;
 import static me.scottwalkerau.qapes.block.ReturnType.VOID;
 
+/**
+ * Swaps two facilities given a pair
+ * @author Scott Walker
+ */
 public class SwapFacilityBlock extends Block {
 
     public SwapFacilityBlock() {

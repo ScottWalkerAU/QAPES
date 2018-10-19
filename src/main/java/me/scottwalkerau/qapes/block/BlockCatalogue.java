@@ -5,10 +5,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Static class to store all blocks for easy fetching
+ * @author Scott Walker
+ */
 public class BlockCatalogue {
 
+    /** All blocks with their respective return type */
     private static final HashMap<ReturnType, List<Block>> blocks = new HashMap<>();
+    /** All terminal blocks */
     private static final HashMap<ReturnType, List<Block>> terminalBlocks = new HashMap<>();
+    /** All blocks that can have a terminal following them */
     private static final HashMap<ReturnType, List<Block>> demiTerminalBlocks = new HashMap<>();
 
     static {

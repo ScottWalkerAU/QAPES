@@ -4,6 +4,10 @@ import me.scottwalkerau.qapes.block.Block;
 
 import static me.scottwalkerau.qapes.block.ReturnType.BOOLEAN;
 
+/**
+ * Returns if a good move is possible in the current state
+ * @author Scott Walker
+ */
 public class GoodMoveExistsBlock extends Block {
 
     public GoodMoveExistsBlock() {

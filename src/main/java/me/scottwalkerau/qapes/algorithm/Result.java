@@ -14,6 +14,14 @@ public class Result implements Comparable<Result> {
     private final Status status;
     private final long timeTaken;
 
+    /**
+     * Constructor
+     * @param tree Tree
+     * @param solution Solution
+     * @param initialFitness Start fitness value
+     * @param status End status of the execution
+     * @param timeTaken Time elapsed
+     */
     public Result(AlgorithmTree tree, Solution solution, long initialFitness, Status status, long timeTaken) {
         if (status == Status.RUNNING)
             throw new IllegalStateException("Cannot create results from a running thread");
@@ -25,6 +33,10 @@ public class Result implements Comparable<Result> {
         this.timeTaken = timeTaken;
     }
 
+    /**
+     * Arbitrary fitness function to determine which trees are better
+     * @return Fitness value
+     */
     public double getFitness() {
         double fitness = getSolution().getGap();
 

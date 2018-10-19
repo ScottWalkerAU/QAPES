@@ -5,6 +5,10 @@ import me.scottwalkerau.qapes.block.Block;
 import static me.scottwalkerau.qapes.block.ReturnType.BOOLEAN;
 import static me.scottwalkerau.qapes.block.ReturnType.VOID;
 
+/**
+ * An IF-ELSE statement, only executes one of the blocks.
+ * @author Scott Walker
+ */
 public class IfElseBlock extends Block {
 
     public IfElseBlock() {

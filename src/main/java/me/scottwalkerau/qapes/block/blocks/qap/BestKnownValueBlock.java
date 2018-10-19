@@ -4,6 +4,10 @@ import me.scottwalkerau.qapes.block.Block;
 
 import static me.scottwalkerau.qapes.block.ReturnType.NUMBER;
 
+/**
+ * Returns the BKV of the instance
+ * @author Scott Walker
+ */
 public class BestKnownValueBlock extends Block {
 
     public BestKnownValueBlock() {

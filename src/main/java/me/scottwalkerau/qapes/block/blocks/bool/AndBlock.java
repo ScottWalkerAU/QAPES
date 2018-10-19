@@ -4,6 +4,10 @@ import me.scottwalkerau.qapes.block.Block;
 
 import static me.scottwalkerau.qapes.block.ReturnType.BOOLEAN;
 
+/**
+ * A boolean AND
+ * @author Scott Walker
+ */
 public class AndBlock extends Block {
 
     public AndBlock() {

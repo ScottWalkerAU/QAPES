@@ -4,6 +4,7 @@ import static me.scottwalkerau.qapes.block.BlockType.*;
 
 /**
  * Class to minimise an algorithm tree, by removing dead code and redundant expressions
+ * @author Scott Walker
  */
 public class TreeMinimiser {
 

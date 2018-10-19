@@ -5,6 +5,10 @@ import me.scottwalkerau.qapes.block.Block;
 import static me.scottwalkerau.qapes.block.ReturnType.BOOLEAN;
 import static me.scottwalkerau.qapes.block.ReturnType.VOID;
 
+/**
+ * An IF statement without an else. Executes the code of the condition returns true
+ * @author Scott Walker
+ */
 public class IfBlock extends Block {
 
     public IfBlock() {

@@ -18,9 +18,12 @@ class AlgorithmRunner extends Thread {
     /** How long to sleep for each time we go to check the status of the thread in milliseconds */
     private static final int SLEEP = 250;
 
+    /** Instance to run against */
     private final Instance instance;
+    /** Algorithm to evaluate */
     private final AlgorithmTree tree;
 
+    // The following transient variables are not persistent
     private transient Result result;
     private transient Solution solution;
     private transient long startFitness;
@@ -29,11 +32,19 @@ class AlgorithmRunner extends Thread {
     private transient long bestTime;
     private transient Status status;
 
+    /**
+     * Constructor
+     * @param instance Instance to run against
+     * @param tree Algorithm to use
+     */
     AlgorithmRunner(Instance instance, AlgorithmTree tree) {
         this.instance = instance;
         this.tree = tree;
     }
 
+    /**
+     * Execute the algorithm
+     */
     public void run() {
         // Setup and start
         initialise();

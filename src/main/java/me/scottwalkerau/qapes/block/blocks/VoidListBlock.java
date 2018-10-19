@@ -4,6 +4,10 @@ import me.scottwalkerau.qapes.block.Block;
 
 import static me.scottwalkerau.qapes.block.ReturnType.VOID;
 
+/**
+ * A simple list for running two statements after each other
+ * @author Scott Walker
+ */
 public class VoidListBlock extends Block {
 
     public VoidListBlock() {

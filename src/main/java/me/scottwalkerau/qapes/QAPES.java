@@ -11,6 +11,7 @@ import org.apache.commons.cli.*;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * Quadratic Assignment Problem, an Enhanced Solver
@@ -25,7 +26,10 @@ public class QAPES {
      */
     public static void main(String[] args) {
         CommandLine cmd = getCommandLine(args);
-        run(cmd);
+        // Run the program given the command line arguments. If it's null an error will already be displayed.
+        if (cmd != null) {
+            run(cmd);
+        }
     }
 
     /**
@@ -41,6 +45,9 @@ public class QAPES {
         for (String ins : cmd.getOptionValue("instances").split(",")) {
             instances.add(getInstance(ins));
         }
+
+        // Debug the instances we're using
+        log.debug("Running with instances: " + instances.stream().map(Instance::getInsName).collect(Collectors.toList()));
 
         // Create population. Can be Tree or List.
         Population pop;
@@ -133,7 +140,6 @@ public class QAPES {
         } catch (ParseException e) {
             log.error(e.getMessage());
             new HelpFormatter().printHelp("QAPES", options);
-            System.exit(1);
             return null;
         }
     }

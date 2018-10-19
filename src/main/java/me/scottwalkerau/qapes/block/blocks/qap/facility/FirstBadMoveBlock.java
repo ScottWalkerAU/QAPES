@@ -5,6 +5,10 @@ import me.scottwalkerau.qapes.qap.Pair;
 
 import static me.scottwalkerau.qapes.block.ReturnType.FACILITY_PAIR;
 
+/**
+ * Find the first mode to worsen the fitness
+ * @author Scott Walker
+ */
 public class FirstBadMoveBlock extends Block {
 
     public FirstBadMoveBlock() {

@@ -5,6 +5,10 @@ import me.scottwalkerau.qapes.block.Block;
 import static me.scottwalkerau.qapes.block.ReturnType.BOOLEAN;
 import static me.scottwalkerau.qapes.block.ReturnType.NUMBER;
 
+/**
+ * Compare the first block is greater than the second
+ * @author Scott Walker
+ */
 public class GreaterThanBlock extends Block {
 
     public GreaterThanBlock() {
