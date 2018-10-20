@@ -23,7 +23,7 @@ public class ListPopulation extends Population {
     private ArrayList<AlgorithmTree> population;
     private List<ResultSet> results;
 
-    public ListPopulation(ArrayList<Instance> instances) {
+    public ListPopulation(List<Instance> instances) {
         super(instances);
     }
 

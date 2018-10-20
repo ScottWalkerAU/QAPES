@@ -49,6 +49,14 @@ public class Result implements Comparable<Result> {
         return fitness;
     }
 
+    /**
+     * Quick accessor for the gap
+     * @return Gap of solution
+     */
+    public double getGap() {
+        return solution.getGap();
+    }
+
     @Override
     public int compareTo(Result o) {
         return Double.compare(getFitness(), o.getFitness());

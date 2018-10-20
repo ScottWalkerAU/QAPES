@@ -18,7 +18,7 @@ public enum BlockType {
     NOT(new NotBlock()),
     AND(new AndBlock()),
     OR(new OrBlock()),
-    //EQUAL(new EqualBlock()), // DISABLED
+    EQUAL(new EqualBlock(), false), // false == DISABLED
     LESS_THAN(new LessThanBlock()),
     GREATER_THAN(new GreaterThanBlock()),
 

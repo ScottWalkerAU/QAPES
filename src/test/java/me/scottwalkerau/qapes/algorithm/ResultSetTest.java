@@ -32,6 +32,9 @@ public class ResultSetTest {
         when(resultA.getFitness()).thenReturn(10.0);
         when(resultB.getFitness()).thenReturn(20.0);
         when(resultC.getFitness()).thenReturn(30.0);
+        when(resultA.getGap()).thenReturn(1.0);
+        when(resultB.getGap()).thenReturn(1.1);
+        when(resultC.getGap()).thenReturn(1.2);
     }
 
     @Test
@@ -44,16 +47,19 @@ public class ResultSetTest {
         resultSet.addResult(resultA);
         assertEquals("Sizes should be 1", 1, resultSet.getSize());
         assertEquals("Mean fitness did not equal", 10.0, resultSet.getMeanFitness(), delta);
+        assertEquals("Gap should be equal", 1.0, resultSet.getMeanGap(), delta);
 
 
         resultSet.addResult(resultB);
         assertEquals("Sizes should be 2", 2, resultSet.getSize());
         assertEquals("Mean fitness did not equal", 15.0, resultSet.getMeanFitness(), delta);
+        assertEquals("Gap should be equal", 1.05, resultSet.getMeanGap(), delta);
 
 
         resultSet.addResult(resultC);
         assertEquals("Sizes should be 3", 3, resultSet.getSize());
         assertEquals("Mean fitness did not equal", 20.0, resultSet.getMeanFitness(), delta);
+        assertEquals("Gap should be equal", 1.1, resultSet.getMeanGap(), delta);
     }
 
     @Test

@@ -148,6 +148,16 @@ public class AlgorithmNode {
      */
     public void setChild(int index, AlgorithmNode child) {
         getChildren()[index] = child;
+        child.parent = this;
+    }
+
+    /**
+     * Set a particular child node
+     * @param index Index of the child
+     * @param block Block to set
+     */
+    public void setChild(int index, Block block) {
+        getChildren()[index] = new AlgorithmNode(this, block);
     }
 
     // -- Getters --

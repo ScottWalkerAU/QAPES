@@ -19,7 +19,7 @@ public class TreePopulation extends Population {
 
     private TreeNode<AlgorithmTree> root;
 
-    public TreePopulation(ArrayList<Instance> instances) {
+    public TreePopulation(List<Instance> instances) {
         super(instances);
     }
 

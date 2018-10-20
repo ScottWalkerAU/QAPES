@@ -76,8 +76,9 @@ public class QAPES {
             }
             pop.run(loaded);
 
-        } catch (InterruptedException e) {
-            log.error(e);
+        } catch (InterruptedException | FileNotFoundException e) {
+            log.error("Error loading file...", e);
+            System.exit(1);
         }
 
         // Finalise

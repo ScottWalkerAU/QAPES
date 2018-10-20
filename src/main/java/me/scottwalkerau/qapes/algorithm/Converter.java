@@ -67,16 +67,10 @@ public class Converter {
      * @param file Name of the file without the extension
      * @return Algorithm loaded in
      */
-    public static AlgorithmTree load(String file) {
-        try {
-            Scanner scanner = new Scanner(new File(FOLDER + file + EXTENSION));
-            AlgorithmNode root = loadRecursion(scanner, null);
-            return new AlgorithmTree(root);
-        } catch (FileNotFoundException | NullPointerException e) {
-            log.error("Couldn't load " + file + ", an error occurred:", e);
-            System.exit(1);
-            return null;
-        }
+    public static AlgorithmTree load(String file) throws FileNotFoundException {
+        Scanner scanner = new Scanner(new File(FOLDER + file + EXTENSION));
+        AlgorithmNode root = loadRecursion(scanner, null);
+        return new AlgorithmTree(root);
     }
 
     /**

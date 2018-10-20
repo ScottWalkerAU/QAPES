@@ -3,7 +3,6 @@ package me.scottwalkerau.qapes.algorithm;
 import me.scottwalkerau.qapes.qap.Instance;
 import me.scottwalkerau.qapes.qap.Solution;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -36,16 +35,18 @@ public class ResultTest {
 
         when(solution.getInstance()).thenReturn(instance);
         when(solution.getFitness()).thenReturn(256L);
+        when(solution.getGap()).thenReturn(4.0);
 
         assertEquals(256, solution.getFitness());
         assertEquals(BKV, solution.getInstance().getBkv());
+        assertEquals(4.0, solution.getGap(), 0.00001);
     }
 
-    @Test @Ignore
+    @Test
     public void testsMembers() {
         int initialFitness = RANDOM.nextInt(512) + 512;
         long timeTaken = RANDOM.nextLong();
-        Status status = Status.values()[RANDOM.nextInt(Status.values().length)];
+        Status status = Status.EXPIRED;
         Result result = new Result(tree, solution, initialFitness, status, timeTaken);
 
         assertSame("Tree should be same object", tree, result.getTree());
@@ -53,6 +54,7 @@ public class ResultTest {
         assertEquals("Initial fitness should equal", initialFitness, result.getInitialFitness());
         assertEquals("Status should match", status, result.getStatus());
         assertEquals("Time taken should match", timeTaken, result.getTimeTaken());
+        assertEquals("Gap should be equal", 4.0, result.getGap(), 0.00001);
     }
 
     @Test

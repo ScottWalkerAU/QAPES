@@ -57,7 +57,7 @@ public class ResultSet implements Comparable<ResultSet> {
     public Double getMeanGap() {
         if (getSize() == 0)
             return null;
-        return results.stream().mapToDouble(r -> r.getSolution().getGap()).sum() / getSize();
+        return results.stream().mapToDouble(Result::getGap).sum() / getSize();
     }
 
     // -- Getters --
