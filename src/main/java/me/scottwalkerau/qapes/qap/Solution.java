@@ -91,12 +91,12 @@ public class Solution {
     }
 
     /**
-     * Get the gap of the fitness from the best known value. A gap of 1 means they're identical,
-     * and a gap of 2 means it's 2x the BKV
+     * Get the gap of the fitness from the best known value. A gap of 0 means they're identical,
+     * and a gap of 1 means it's 200% the BKV
      * @return Solution gap
      */
     public double getGap() {
-        return getFitness() * 1.0 / getInstance().getBkv();
+        return getFitness() * 1.0 / getInstance().getBkv() - 1;
     }
 
     /**

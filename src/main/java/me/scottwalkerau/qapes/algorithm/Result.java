@@ -38,7 +38,7 @@ public class Result implements Comparable<Result> {
      * @return Fitness value
      */
     public double getFitness() {
-        double fitness = getSolution().getGap();
+        double fitness = getSolution().getGap() + 1;
 
         double timeLog = Math.log(getTimeTaken());
         fitness *= timeLog;
